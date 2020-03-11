@@ -5,8 +5,7 @@ import java.lang.management.OperatingSystemMXBean;
 import java.lang.management.RuntimeMXBean;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
  
 public class CpuPerThread {
 	private int sampleTime = 20000;
@@ -20,21 +19,11 @@ public class CpuPerThread {
  
 	public static void main(String[] args) {
  
-		new Thread("Dummy thread"){
-			public void run(){
-				int i = 0;
-				while(i++<10000000)
-				System.out.println(i);
-			}
-		}.start();
- 
-		new Thread("Dummy thread 2"){
-			public void run(){
-				int i = 0;
-				while(i++<10000000)
-				System.out.println(i);
-			}
-		}.start();
+		Thread intermediate;
+		
+		intermediate = new Thread(new IntHost());
+		
+		intermediate.start();
 		
 		new CpuPerThread().measure();
 	}
