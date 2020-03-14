@@ -7,6 +7,8 @@ import java.net.*;
 import java.lang.management.*;
 import java.util.*;
 import java.text.ParseException;
+import java.time.Duration;
+import java.time.Instant;
 
 /**
  * @author Jia Chen Huang
@@ -89,20 +91,39 @@ public class IntHost extends Thread
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Instant start = Instant.now();
+		 
+	    //Measure execution time for this method
+		runReply();
+	 
+	    Instant finish = Instant.now();
+	 
+	    long timeElapsed = Duration.between(start, finish).toMillis();  //in millis
+	    
+	    System.out.println("time in nanoTime: " + timeElapsed);
+
+	}
+	
+	private static void runReply()
+	{
+		System.out.println("Intermediate Host is now running.");
 		IntHost i = new IntHost();
 
-		while(true) {
+		for(int loop = 0; loop < 1001; loop++) {
 			i.reply();
 		}
-
+		i.sendSocket.close();
+		i.receiveSocket.close();
+		System.out.println("Intermediate Host has done running.");
 	}
 
 
 	public void run() {
 		// TODO Auto-generated method stub
-		//System.out.println("Intermediate Host is now running.");
-		while(true) {
+		System.out.println("Intermediate Host is now running.");
+		for(int loop = 0; loop < 1001; loop++) {
 			reply();
 		}
+		System.out.println("Intermediate Host has done running.");
 	}
 }
