@@ -6,6 +6,7 @@ package pkj;
 import java.net.*;
 import java.lang.management.*;
 import java.util.*;
+import java.text.ParseException;
 
 /**
  * @author Jia Chen Huang
@@ -85,7 +86,7 @@ public class IntHost extends Thread
 
 	/**
 	 * @param args
-	 
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		IntHost i = new IntHost();
@@ -95,7 +96,7 @@ public class IntHost extends Thread
 		}
 
 	}
-	*/
+	
 
 	public void run() {
 		// TODO Auto-generated method stub
