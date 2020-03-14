@@ -6,6 +6,7 @@ import java.lang.management.RuntimeMXBean;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
 import java.util.*;
+import java.lang.System.*;
  
 public class CpuPerThread {
 	private int sampleTime = 20000;
@@ -19,13 +20,23 @@ public class CpuPerThread {
  
 	public static void main(String[] args) {
  
-		Thread intermediate;
+		Thread intermediate1;
+		//Thread intermediate2;
 		
-		intermediate = new Thread(new IntHost());
+		intermediate1 = new Thread(new IntHost());
 		
-		intermediate.start();
+		intermediate1.start();
 		
+		System.out.println("The following is CPU time:");
 		new CpuPerThread().measure();
+		System.out.println("");
+		/**
+		intermediate2 = new Thread(new IntHost(24));
+		long time1 = System.nanoTime();
+		intermediate2.start();
+		long time2 = System.nanoTime() - time1;
+		System.out.println("The following is CPU time with nanoTime:\n" + time2);
+		*/
 	}
  
 	private void measure() {
