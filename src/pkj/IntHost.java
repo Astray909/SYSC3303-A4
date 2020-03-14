@@ -52,7 +52,7 @@ public class IntHost extends Thread
 	{
 		DatagramPacket receivePacket = Client.waitPacket(receiveSocket, INTHOST);
 		int clientPort = receivePacket.getPort();
-		sleepThread(1);
+		//sleepThread(1);
 		Client.sendPacket(receivePacket.getData(), receivePacket.getLength(), receivePacket.getAddress(), Server.port, sendSocket, INTHOST);
 		DatagramPacket reply = Client.waitPacket(receiveSocket, "Intermediate Server");
 		Client.sendPacket(reply.getData(), reply.getLength(), reply.getAddress(), clientPort, sendSocket, INTHOST);
@@ -77,7 +77,7 @@ public class IntHost extends Thread
 
 	/**
 	 * @param args
-	 */
+	 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		IntHost i = new IntHost();
@@ -87,6 +87,7 @@ public class IntHost extends Thread
 		}
 
 	}
+	*/
 
 	public void run() {
 		// TODO Auto-generated method stub

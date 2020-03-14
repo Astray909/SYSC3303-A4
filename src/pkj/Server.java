@@ -58,9 +58,9 @@ public class Server
 			{
 				replyData = writeRequest;
 			}
-			System.out.println("Server: Packet sending");
+			////System.out.println("Server: Packet sending");
 			sendPacket(replyData, replyData.length, receivePacket.getAddress(), IntHost.port, sendSocket, "Server");
-			System.out.println("Send Packet: Success");
+			////System.out.println("Send Packet: Success");
 		}
 		return;
 	}
@@ -77,13 +77,13 @@ public class Server
 	public static void sendPacket(byte[]msg, int len, InetAddress desti, int port, DatagramSocket s, String source)
 	{
 		DatagramPacket packet = buildPacket(msg, len, desti, port);
-		System.out.println("The source " + source + " is sending a packet:");
+		////System.out.println("The source " + source + " is sending a packet:");
 
 		//prints out information about the packet
-		System.out.println("Packet from host: " + packet.getAddress());
-		System.out.println("From host port: " + packet.getPort());
-		System.out.println("Length: " + packet.getLength());
-		System.out.print("Containing: " );
+		////System.out.println("Packet from host: " + packet.getAddress());
+		////System.out.println("From host port: " + packet.getPort());
+		////System.out.println("Length: " + packet.getLength());
+		//System.out.print("Containing: " );
 		print(msg, msg.length);
 
 		try
@@ -94,7 +94,7 @@ public class Server
 			ie.printStackTrace();
 			System.exit(1);
 		}
-		System.out.println(source + ": packet sent\n");
+		////System.out.println(source + ": packet sent\n");
 	}
 	
 	/**
@@ -104,24 +104,24 @@ public class Server
 	 */
 	private static void print(byte[] bytes, int len)
 	{
-		System.out.print("Data as bytes: ");
+		//System.out.print("Data as bytes: ");
 		for (int i=0; i<len; i++) {
-			System.out.print(Integer.toHexString(bytes[i]));
-			System.out.print(' ');
+			//System.out.print(Integer.toHexString(bytes[i]));
+			//System.out.print(' ');
 		}
-		System.out.print("\n");
+		//System.out.print("\n");
 
-		System.out.print("Data as string: ");
+		//System.out.print("Data as string: ");
 		for (int i=0; i<len; i++) {
 			if (bytes[i] < 32) {
-				System.out.print((char) (bytes[i] + '0'));
+				//System.out.print((char) (bytes[i] + '0'));
 			}
 			else {
-				System.out.print((char) bytes[i]);
+				//System.out.print((char) bytes[i]);
 			}
-			System.out.print(' ');
+			//System.out.print(' ');
 		}
-		System.out.print("\n\n");
+		//System.out.print("\n\n");
 	}
 	
 	/**

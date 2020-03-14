@@ -89,7 +89,7 @@ public class Client
 
 		if(!mode.equalsIgnoreCase("octet") && !mode.equalsIgnoreCase("netascii"))
 		{
-			System.out.println("wrong mode, please change mode to either octet or netascii");
+			//System.out.println("wrong mode, please change mode to either octet or netascii");
 			System.exit(1);
 		}
 
@@ -132,13 +132,13 @@ public class Client
 	public static void sendPacket(byte[]msg, int len, InetAddress desti, int port, DatagramSocket s, String source)
 	{
 		DatagramPacket packet = buildPacket(msg, len, desti, port);
-		System.out.println("The source " + source + " is sending a packet:");
+		//System.out.println("The source " + source + " is sending a packet:");
 
 		//prints out information about the packet
-		System.out.println("Packet from host: " + packet.getAddress());
-		System.out.println("From host port: " + packet.getPort());
-		System.out.println("Length: " + packet.getLength());
-		System.out.print("Containing: " );
+		//System.out.println("Packet from host: " + packet.getAddress());
+		//System.out.println("From host port: " + packet.getPort());
+		//System.out.println("Length: " + packet.getLength());
+		//System.out.print("Containing: " );
 		print(msg, msg.length);
 
 		try
@@ -149,7 +149,7 @@ public class Client
 			ie.printStackTrace();
 			System.exit(1);
 		}
-		System.out.println(source + ": packet sent\n");
+		//System.out.println(source + ": packet sent\n");
 	}
 
 	/**
@@ -160,13 +160,13 @@ public class Client
 	 */
 	public static DatagramPacket waitPacket(DatagramSocket s, String source)
 	{
-		byte msg[] = new byte[100];
+		byte msg[] = new byte[1000];
 		DatagramPacket receivedPacket = new DatagramPacket(msg, msg.length);
-		System.out.println("The source " + source + " is waiting for a packet");
+		//System.out.println("The source " + source + " is waiting for a packet");
 
 		try
 		{
-			System.out.println("waiting...");
+			//System.out.println("waiting...");
 			s.receive(receivedPacket);
 		}
 		catch (IOException e)
@@ -175,13 +175,13 @@ public class Client
 			System.exit(1);
 		}
 
-		System.out.println("The source " + source + " has received the packet");
+		//System.out.println("The source " + source + " has received the packet");
 
 		//prints out information about the packet
-		System.out.println("Packet from host: " + receivedPacket.getAddress());
-		System.out.println("From host port: " + receivedPacket.getPort());
-		System.out.println("Length: " + receivedPacket.getLength());
-		System.out.print("Containing: " );
+		//System.out.println("Packet from host: " + receivedPacket.getAddress());
+		//System.out.println("From host port: " + receivedPacket.getPort());
+		//System.out.println("Length: " + receivedPacket.getLength());
+		//System.out.print("Containing: " );
 		print(msg, msg.length);
 
 		return receivedPacket;
@@ -194,24 +194,24 @@ public class Client
 	 */
 	private static void print(byte[] bytes, int len)
 	{
-		System.out.print("Data as bytes: ");
+		//System.out.print("Data as bytes: ");
 		for (int i=0; i<len; i++) {
-			System.out.print(Integer.toHexString(bytes[i]));
-			System.out.print(' ');
+			//System.out.print(Integer.toHexString(bytes[i]));
+			//System.out.print(' ');
 		}
-		System.out.print("\n");
+		//System.out.print("\n");
 
-		System.out.print("Data as string: ");
+		//System.out.print("Data as string: ");
 		for (int i=0; i<len; i++) {
 			if (bytes[i] < 32) {
-				System.out.print((char) (bytes[i] + '0'));
+				//System.out.print((char) (bytes[i] + '0'));
 			}
 			else {
-				System.out.print((char) bytes[i]);
+				//System.out.print((char) bytes[i]);
 			}
-			System.out.print(' ');
+			//System.out.print(' ');
 		}
-		System.out.print("\n\n");
+		//System.out.print("\n\n");
 	}
 
 	/**
@@ -237,16 +237,16 @@ public class Client
 		byte[] in = msgBuilder(true, "inn!", "netascii");
 		byte[] out = msgBuilder(false, "out!", "octet");
 		for(int i=0; i< in.length ; i++) {
-			System.out.print(in[i] +" ");
+			//System.out.print(in[i] +" ");
 		}
-		System.out.println("");
+		//System.out.println("");
 		for(int i=0; i< out.length ; i++) {
-			System.out.print(out[i] +" ");
+			//System.out.print(out[i] +" ");
 		}
 		*/
 		Client c = new Client();
 		boolean r = true;
-		for (int i = 0; i<10; i++)
+		for (int i = 0; i<1000; i++)
 		{
 			String s = "testfile.txt";
 			byte[] msg = msgBuilder(r, s, "octet");
