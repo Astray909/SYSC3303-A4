@@ -8,7 +8,7 @@ import java.lang.management.ThreadMXBean;
 import java.util.*;
 
 public class CpuPerThread {
-	private int sampleTime = 30000;
+	private int sampleTime = 20000;
 	private ThreadMXBean threadMxBean = ManagementFactory.getThreadMXBean();
 	private RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
 	private OperatingSystemMXBean osMxBean = ManagementFactory
@@ -34,28 +34,27 @@ public class CpuPerThread {
 			threadInitialCPU.put(info.getThreadId(),
 					threadMxBean.getThreadCpuTime(info.getThreadId()));
 		}
-
+ 
 		try {
 			Thread.sleep(sampleTime);
 		} catch (InterruptedException e) {
 		}
-
+ 
 		long upTime = runtimeMxBean.getUptime();
-
+ 
 		Map<Long, Long> threadCurrentCPU = new HashMap<Long, Long>();
 		threadInfos = threadMxBean.dumpAllThreads(false, false);
 		for (ThreadInfo info : threadInfos) {
 			threadCurrentCPU.put(info.getThreadId(),
 					threadMxBean.getThreadCpuTime(info.getThreadId()));
 		}
-
+ 
 		// CPU over all processes
 		int nrCPUs = osMxBean.getAvailableProcessors();
 		// total CPU: CPU % can be more than 100% (devided over multiple cpus)
 		//long nrCPUs = 1;
 		// elapsedTime is in ms.
 		long elapsedTime = (upTime - initialUptime);
-		System.out.println("elapsedTime: " + elapsedTime);
 		for (ThreadInfo info : threadInfos) {
 			// elapsedCpu is in ns
 			Long initialCPU = threadInitialCPU.get(info.getThreadId());
@@ -66,7 +65,7 @@ public class CpuPerThread {
 				threadCPUUsage.put(info.getThreadId(), cpuUsage);
 			}
 		}
-
+ 
 		// threadCPUUsage contains cpu % per thread
 		System.out.println(threadCPUUsage);
 		// You can use osMxBean.getThreadInfo(theadId) to get information on
