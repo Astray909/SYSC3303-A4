@@ -19,7 +19,7 @@ public class IntHost extends Thread
 	DatagramSocket sendSocket, receiveSocket;
 	static final String INTHOST = "Intermediate Server";
 	static int port = 23;
-	
+
 	private int sampleTime = 20000;
 	private ThreadMXBean threadMxBean = ManagementFactory.getThreadMXBean();
 	private RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
@@ -46,13 +46,13 @@ public class IntHost extends Thread
 			System.exit(1);
 		}
 	}
-	
+
 	/**
 	public int port()
 	{
 		return port;
 	}
-	*/
+	 */
 
 	/**
 	 * Sends reply packet from server back to client
@@ -96,7 +96,7 @@ public class IntHost extends Thread
 		}
 
 	}
-	
+
 
 	public void run() {
 		// TODO Auto-generated method stub

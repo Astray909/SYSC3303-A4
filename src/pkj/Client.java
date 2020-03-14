@@ -226,7 +226,7 @@ public class Client
 		DatagramPacket packet = new DatagramPacket(msg, len, desti, port);
 		return packet;
 	}
-	
+
 	/**
 	 * @param args
 	 */
@@ -243,7 +243,7 @@ public class Client
 		for(int i=0; i< out.length ; i++) {
 			//System.out.print(out[i] +" ");
 		}
-		*/
+		 */
 		System.out.println("Client is now running");
 		Client c = new Client();
 		boolean r = true;

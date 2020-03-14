@@ -64,7 +64,7 @@ public class Server
 		}
 		return;
 	}
-	
+
 	/**
 	 * builds and sends a new Packet
 	 * @param msg: the message you want to send
@@ -96,7 +96,7 @@ public class Server
 		}
 		////System.out.println(source + ": packet sent\n");
 	}
-	
+
 	/**
 	 * prints out the contents of a byte array
 	 * @param bytes: the byte array
@@ -123,7 +123,7 @@ public class Server
 		}
 		//System.out.print("\n\n");
 	}
-	
+
 	/**
 	 * builds a new packet
 	 * @param msg: the message you want to convert
