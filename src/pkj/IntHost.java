@@ -91,6 +91,7 @@ public class IntHost extends Thread
 
 	public void run() {
 		// TODO Auto-generated method stub
+		System.out.println("Intermediate Host is now running.");
 		while(true) {
 			reply();
 		}

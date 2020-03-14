@@ -244,6 +244,7 @@ public class Client
 			//System.out.print(out[i] +" ");
 		}
 		*/
+		System.out.println("Client is now running");
 		Client c = new Client();
 		boolean r = true;
 		for (int i = 0; i<1000; i++)

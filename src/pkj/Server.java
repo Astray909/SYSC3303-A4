@@ -178,12 +178,12 @@ public class Server
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		System.out.println("Server is now running");
 		Server s = new Server();
 		while(true)
 		{
 			s.echo();
 		}
-
 	}
 
 }
