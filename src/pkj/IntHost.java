@@ -22,15 +22,6 @@ public class IntHost extends Thread
 	static final String INTHOST = "Intermediate Server";
 	static int port = 23;
 
-	private int sampleTime = 20000;
-	private ThreadMXBean threadMxBean = ManagementFactory.getThreadMXBean();
-	private RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
-	private OperatingSystemMXBean osMxBean = ManagementFactory
-			.getOperatingSystemMXBean();
-	private Map<Long, Long> threadInitialCPU = new HashMap<Long, Long>();
-	private Map<Long, Float> threadCPUUsage = new HashMap<Long, Float>();
-	private long initialUptime = runtimeMxBean.getUptime();
-
 	/**
 	 * constructor
 	 */
