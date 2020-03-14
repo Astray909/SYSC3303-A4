@@ -8,7 +8,7 @@ import java.lang.management.ThreadMXBean;
 import java.util.*;
 
 public class CpuPerThread {
-	private int sampleTime = 20000;
+	private int sampleTime = 30000;
 	private ThreadMXBean threadMxBean = ManagementFactory.getThreadMXBean();
 	private RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
 	private OperatingSystemMXBean osMxBean = ManagementFactory
@@ -24,11 +24,7 @@ public class CpuPerThread {
 		intermediate1 = new Thread(new IntHost());
 
 		intermediate1.start();
-
-		System.out.println("The following is CPU time with MxBean:");
 		new CpuPerThread().measure();
-		System.out.println("");
-
 	}
 
 	private void measure() {
@@ -59,6 +55,7 @@ public class CpuPerThread {
 		//long nrCPUs = 1;
 		// elapsedTime is in ms.
 		long elapsedTime = (upTime - initialUptime);
+		System.out.println("elapsedTime: " + elapsedTime);
 		for (ThreadInfo info : threadInfos) {
 			// elapsedCpu is in ns
 			Long initialCPU = threadInitialCPU.get(info.getThreadId());

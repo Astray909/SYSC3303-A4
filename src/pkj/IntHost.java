@@ -124,6 +124,8 @@ public class IntHost extends Thread
 		for(int loop = 0; loop < 1001; loop++) {
 			reply();
 		}
+		sendSocket.close();
+		receiveSocket.close();
 		System.out.println("Intermediate Host has done running.");
 	}
 }
